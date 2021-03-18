@@ -1,0 +1,46 @@
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+p{
+    margin:0;
+    padding:0;
+}
+
+.content{
+    background-color: #eee;
+}
+
+.footer{
+    background-color: #fff;
+    padding: 1rem 0;
+}
+
+.footer-container{
+    width: 80%;
+}
+
+.movie-card{
+    transition: .2s all;
+}
+.navbar-nav > li{
+    padding:0 10px;
+  }
+
+  .form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
