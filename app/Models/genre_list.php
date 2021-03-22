@@ -11,6 +11,8 @@ class genre_list extends Model
 
     public $timestamps = false;
 
+    protected $table = 'genre_list';
+
     public function genres()
     {
         return $this->belongsTo(genres::class, 'id_genre', 'id_genre');

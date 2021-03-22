@@ -13,10 +13,12 @@ class genres extends Model
 
     public $timestamps = false;
 
+    protected $table = 'genres';
+
     public function genre_list()
     {
         return $this->hasMany(genre_list::class, 'id_genre', 'id_genre');
     }
 
-    
+
 }

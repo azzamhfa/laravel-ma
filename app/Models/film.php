@@ -13,6 +13,8 @@ class film extends Model
 
     public $timestamps = false;
 
+    protected $table = 'film';
+
     public function genre_list()
     {
         return $this->hasMany(genre_list::class, 'id_film', 'id_film');
