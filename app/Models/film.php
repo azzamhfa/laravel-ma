@@ -15,9 +15,14 @@ class film extends Model
 
     protected $table = 'film';
 
-    public function genre_list()
+    // public function genre_list()
+    // {
+    //     return $this->hasMany(genre_list::class, 'id_film', 'id_film');
+    // }
+
+    public function genres()
     {
-        return $this->hasMany(genre_list::class, 'id_film', 'id_film');
+        return $this->belongsToMany(genres::class, 'genre_list', 'id_film', 'id_genre');
     }
 
     public function film_stock()
