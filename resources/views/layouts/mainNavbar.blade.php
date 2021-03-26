@@ -32,7 +32,7 @@
                         <a href="{{ url('login')}}" class="btn btn-outline-light">Login</a>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-light">Signup</button>
+                    <a href="{{ url('register')}}" class="btn btn-light">Signup</a>
                     </li>
                 </ul>
             </div>

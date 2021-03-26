@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html class="h-100">
 <html lang="en">
 
 <head>
@@ -10,7 +10,7 @@
     <title>@yield('title')</title>
 </head>
 
-<body>
+<body class="h-100">
     @yield('container')
 
 </body>

@@ -1,0 +1,28 @@
+html,
+body {
+  height: 100%;
+}
+
+@media screen and (min-width: 0px) and (max-width: 576px) {
+  .row {
+    flex-direction: column;
+  } /* show it on small screens */
+  .bg-right {
+    height: 20%;
+  }
+}
+
+.bg-white {
+  background: white;
+}
+
+.line {
+  height: 4px;
+  width: 30px;
+}
+
+.bg-right {
+  background-image: url("../images/Right.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
