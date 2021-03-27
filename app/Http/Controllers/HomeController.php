@@ -8,8 +8,8 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $genre = \App\Models\genres::all();
+        $film_stock = \App\Models\film_stock::all();
         // dd($genre);
-        return view('welcome',['genre' => $genre]);
+        return view('welcome',['film_stock' => $film_stock]);
     }
 }
