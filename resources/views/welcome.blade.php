@@ -77,11 +77,52 @@
                     </ul>
                 </nav>
             </div>
-            <div class="footer">
-                <div class="container-fluid footer-container">
-                    <h6>Projek Pemrograman Web Lanjut</h6>
+            <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Rent-Movies</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">returns</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Payment Method</h4>
+                    <ul>
+                        <li><a href="#">Mandiri</a></li>
+                        <li><a href="#">BNI</a></li>
+                        <li><a href="#">BRI</a></li>
+                        <li><a href="#">VISA</a></li>
+                        <li><a href="#">OVO</a></li>
+                        <li><a href="#">Dana</a></li>
+                        <li><a href="#">LinkAja!</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </footer>
         </div>
         {{-- <h1>Home</h1>
         <div class="listFilm" style="padding:2vw">
