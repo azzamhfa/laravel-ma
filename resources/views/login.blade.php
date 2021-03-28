@@ -3,7 +3,7 @@
 @section('title', 'Login')
 
 @section('container')
-    <div class="row w-100" style="height: 100vh;">
+    <div class="d-flex w-100" style="height: 100vh;">
         <div class="col d-flex justify-content-center align-items-center">
 
             <main class="form-signin w-75">
@@ -25,7 +25,7 @@
             </main>
         </div>
         <div class="col d-flex justify-content-center align-items-center bg-primary">
-            <h1 class="text-center fw-normal text-light">Peminjaman <b>Film</b><br>menjadi lebih <b>mudah</b></h1>
+            <h1 class="text-center fw-light text-light">Peminjaman <b class="fw-bold">Film</b><br>menjadi lebih <b class="fw-bold">mudah</b></h1>
         </div>
     </div>
 

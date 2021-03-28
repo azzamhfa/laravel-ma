@@ -31,6 +31,9 @@ p{
 .movie-card{
     transition: .2s all;
 }
+.movie-card:hover{
+    transform: translateY(-5px);
+}
 .navbar-nav > li{
     padding:0 10px;
   }
