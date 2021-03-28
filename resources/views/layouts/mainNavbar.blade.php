@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link rel="stylesheet"   type="text/css"  href="{{ asset('css/app.css') }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/footer.css">
@@ -14,6 +15,7 @@
 </head>
 
 <body>
+    <?php use Illuminate\Support\Facades\Auth; ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="padding-right:10%; padding-left:10%">
         <div class="container-fluid">
             <a class="navbar-brand text-light" href="#">Rent-Movies</a>
@@ -30,12 +32,18 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" href="#">Keranjang Saya</a>
                     </li> --}}
-                    <li class="nav-item">
-                        <a href="{{ url('login')}}" class="btn btn-outline-light">Login</a>
-                    </li>
-                    <li class="nav-item">
-                    <a href="{{ url('register')}}" class="btn btn-light">Signup</a>
-                    </li>
+                    <?php if (Auth::check()) { ?>
+                        <li class="nav-item">
+                            <a href="{{ route('logout')}}" class="btn btn-outline-danger">Logout</a>
+                         </li>
+                    <?php }else{ ?>
+                        <li class="nav-item">
+                            <a href="{{ url('login')}}" class="btn btn-outline-light">Login</a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="{{ url('register')}}" class="btn btn-light">Signup</a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>

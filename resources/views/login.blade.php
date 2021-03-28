@@ -9,11 +9,12 @@
         <main class="form-signin w-75">
           <h4 class="text-center">Masuk</h4>
           <div class="line bg-primary mb-4 mx-auto"></div>
-          <form action="" method="post" class="mb-5">
+          <form action="{{route('login')}}" method="POST" class="mb-5">
+            {{ csrf_field() }}
             <div class="mb-3">
               <input
-                type="email"
-                placeholder="Email"
+                placeholder="Username"
+                name="username"
                 class="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
@@ -22,6 +23,7 @@
             <div class="mb-3">
               <input
                 type="password"
+                name="password"
                 placeholder="Password"
                 class="form-control"
                 id="exampleInputPassword1"
