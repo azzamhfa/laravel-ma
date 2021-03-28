@@ -10,11 +10,12 @@
         <div class="card-header">
           <h3 class="text-center">Daftar</h3>
         </div>
-        <form action=" " method="post">
+        <form action="{{route('register')}}" method="POST">
+            {{ csrf_field() }}
         <div class="card-body">
               <div class="form-group mb-2">
-                  <label for=""><strong>Nama Lengkap</strong></label>
-                  <input type="text" name="name" class="form-control" placeholder="Nama Lengkap">
+                  <label for=""><strong>Username</strong></label>
+                  <input type="text" name="username" class="form-control" placeholder="Username">
               </div>
               <div class="form-group mb-2">
                   <label for=""><strong>Email</strong></label>
@@ -39,5 +40,5 @@
     </div>
   </div>
   </div>
-  
+
 @endsection

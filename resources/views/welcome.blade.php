@@ -41,7 +41,7 @@
                                 <div class="position-absolute top-0 end-0 bg-danger p-1 pe-3 ps-3 mt-3 me-3 rounded" style="opacity: 0.8">
                                 <p style="color:white; font-weight: 600">{{$film_stock->tersedia}}</p>
                                 </div>
-                            
+
                             @endif
                             <form action="{{url('/addcart')}}" method="GET">
                             <input type="hidden" name="id_stock[]" value="{{$film_stock->id_stock}}" id="">

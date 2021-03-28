@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <?php use Illuminate\Support\Facades\Auth; ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="padding-right:10%; padding-left:10%">
         <div class="container-fluid">
             <a class="navbar-brand text-light" href="#">Rent-Movies</a>
@@ -31,12 +32,18 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" href="#">Keranjang Saya</a>
                     </li> --}}
-                    <li class="nav-item">
-                        <a href="{{ url('login')}}" class="btn btn-outline-light">Login</a>
-                    </li>
-                    <li class="nav-item">
-                    <a href="{{ url('register')}}" class="btn btn-light">Signup</a>
-                    </li>
+                    <?php if (Auth::check()) { ?>
+                        <li class="nav-item">
+                            <a href="{{ route('logout')}}" class="btn btn-outline-danger">Logout</a>
+                         </li>
+                    <?php }else{ ?>
+                        <li class="nav-item">
+                            <a href="{{ url('login')}}" class="btn btn-outline-light">Login</a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="{{ url('register')}}" class="btn btn-light">Signup</a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
