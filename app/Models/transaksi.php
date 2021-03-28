@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tansaksi extends Model
+class transaksi extends Model
 {
     use HasFactory;
 
@@ -14,6 +14,8 @@ class tansaksi extends Model
     public $timestamps = false;
 
     protected $table = 'transaksi';
+
+    protected $guarded = [];
 
     public function film_stock()
     {

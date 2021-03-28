@@ -15,6 +15,8 @@ class member_info extends Model
 
     protected $table = 'member_info';
 
+    protected $guarded = [];
+
     public function member()
     {
         return $this->hasOne(member::class, 'id_info', 'id_info');

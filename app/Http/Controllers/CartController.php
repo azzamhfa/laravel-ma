@@ -13,7 +13,7 @@ class CartController extends Controller
         else
            echo 'No data in the session';
      }
-      
+
     //MASUKIN ID_PRODUK SESSION
     public function addToCart(Request $request)
     {
