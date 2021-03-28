@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link rel="stylesheet"   type="text/css"  href="{{ asset('css/app.css') }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <title>@yield('title')</title>
 </head>
 
@@ -33,7 +35,7 @@
                         <a href="{{ url('login')}}" class="btn btn-outline-light">Login</a>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-light">Signup</button>
+                    <a href="{{ url('register')}}" class="btn btn-light">Signup</a>
                     </li>
                 </ul>
             </div>

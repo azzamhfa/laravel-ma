@@ -13,6 +13,8 @@ class kasir extends Model
 
     public $timestamps = false;
 
+    protected $table = 'kasir';
+
     public function transaksi()
     {
         return $this->hasMany(transaksi::class, 'id_kasir', 'id_kasir');

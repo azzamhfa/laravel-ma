@@ -30,14 +30,26 @@
         <div class="content">
             <div class="mx-auto py-5 d-flex align-items-center flex-column" style="width:85%;">
                 <div class="row gy-4 mb-5">
-                    @for ($i = 0; $i < 12; $i++)
+                    @foreach ($film_stock as $film_stock)
                         <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-center justify-content-center">
-                            <div class="card movie-card" style="width: 16rem;">
+                            <div class="card position-relative movie-card" style="width: 16rem;">
+                            @if($film_stock->tersedia == "Tersedia")
+                            <div class="position-absolute top-0 end-0 bg-success p-1 pe-3 ps-3 mt-3 me-3 rounded" style="opacity: 0.8">
+                            <p style="color:white; font-weight: 600">{{$film_stock->tersedia}}</p>
+                            </div>
+                            @else
+                                <div class="position-absolute top-0 end-0 bg-danger p-1 pe-3 ps-3 mt-3 me-3 rounded" style="opacity: 0.8">
+                                <p style="color:white; font-weight: 600">{{$film_stock->tersedia}}</p>
+                                </div>
+                            
+                            @endif
+                            <form action="{{url('/addcart')}}" method="GET">
+                            <input type="hidden" name="id_stock[]" value="{{$film_stock->id_stock}}" id="">
                                 <img style=""
                                     src="https://images-na.ssl-images-amazon.com/images/I/81jOPH03PWL._AC_SL1500_.jpg"
                                     class="card-img-top" alt="movie poster">
                                 <div class="card-body">
-                                    <p style="font-weight: bold;">The SpongeBob Movie: Sponge on the run</p>
+                                    <p style="font-weight: bold;">{{$film_stock->judul_s}}</p>
                                     <div class="row my-3 mx-0 h-100 justify-content-center align-items-center">
                                         <div class="progress col-sm-6 p-0" style="height: 10px;">
                                             <div class="progress-bar" role="progressbar" style="width: 75%"
@@ -46,13 +58,14 @@
                                         <p class="col " style="font-size: .9rem;padding:0;text-align:end; display:inline-block;">37 / 50 disc</p>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <p style="margin:0;"><b>Rp 20.000</b> / week</p>
-                                        <a href="#" class="btn btn-primary">Sewa</a>
+                                        <p style="margin:0;"><b>Rp.{{$film_stock->harga}}</b> / week</p>
+                                        <button type="submits"class="btn btn-primary">Sewa</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
@@ -64,11 +77,52 @@
                     </ul>
                 </nav>
             </div>
-            <div class="footer">
-                <div class="container-fluid footer-container">
-                    <h6>Projek Pemrograman Web Lanjut</h6>
+            <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Rent-Movies</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">returns</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Payment Method</h4>
+                    <ul>
+                        <li><a href="#">Mandiri</a></li>
+                        <li><a href="#">BNI</a></li>
+                        <li><a href="#">BRI</a></li>
+                        <li><a href="#">VISA</a></li>
+                        <li><a href="#">OVO</a></li>
+                        <li><a href="#">Dana</a></li>
+                        <li><a href="#">LinkAja!</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </footer>
         </div>
         {{-- <h1>Home</h1>
         <div class="listFilm" style="padding:2vw">

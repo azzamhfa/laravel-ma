@@ -19,4 +19,12 @@ $baseController =  "App\Http\Controllers";
 Route::get('/', $baseController.'\HomeController@home');
 Route::get('/admin', $baseController.'\HomeController@home');
 Route::get('/login', $baseController.'\LoginController@login');
+Route::get('/register', $baseController.'\RegisterController@register');
 
+Route::get('/konfirmasi', function(){
+    return view('konfirmasi_pembayaran');
+});
+
+//BUAT SESSION
+Route::get('/addcart', $baseController.'\CartController@addToCart');
+Route::get('/session', $baseController.'\CartController@accessSessionData');
