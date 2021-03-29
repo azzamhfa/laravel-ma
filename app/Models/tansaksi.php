@@ -13,6 +13,8 @@ class tansaksi extends Model
 
     public $timestamps = false;
 
+    protected $table = 'transaksi';
+
     public function film_stock()
     {
         return $this->belongsTo(film_stock::class, 'id_stock', 'id_stock');
