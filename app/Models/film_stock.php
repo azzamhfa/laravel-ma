@@ -13,6 +13,8 @@ class film_stock extends Model
 
     public $timestamps = false;
 
+    protected $table = 'film_stock';
+
     public function film()
     {
         return $this->belongsTo(film::class, 'id_film', 'film_id');

@@ -13,6 +13,10 @@ class member extends Model
 
     public $timestamps = false;
 
+    protected $table = 'member';
+
+    protected $guarded = [];
+
     public function member_info()
     {
         return $this->belongsTo(member_info::class, 'id_info', 'id_info');

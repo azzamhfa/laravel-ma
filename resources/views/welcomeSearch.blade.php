@@ -2,12 +2,15 @@
 
 @section('title', 'Welcome')
 @section('container')
+{{-- @foreach ($film_stock as $film_stock)
+            <p>{{$film_stock->judul}}</p>
+        @endforeach --}}
     <div class="bg-primary" style="height: 65vh;">
         <div class=" d-flex flex-column align-items-center justify-content-center" style="height: 100%;">
             <h2 class="text-light">Hai, Mau Pinjam Film Apa?</h2>
             <div class="row justify-content-center w-75 mt-5">
                 <div class="col-12 col-md-10 col-lg-8">
-                    <form class="card card-sm" action="{{route('redirect')}}" method="POST">
+                    <form class="card card-sm" method="GET">
                         {{ csrf_field() }}
                         <div class="card-body row no-gutters align-items-center">
                             <div class="col-auto">
@@ -15,7 +18,7 @@
                             </div>
                             <!--end of col-->
                             <div class="col">
-                                <input name="input" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Cari film atau genre">
+                                <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Cari film atau genre">
                             </div>
                             <!--end of col-->
                             <div class="col-auto">
@@ -28,18 +31,14 @@
                 <!--end of col-->
             </div>
         </div>
+
         <div class="content">
             <div class="mx-auto py-5 d-flex align-items-center flex-column" style="width:85%;">
                 <div class="row gy-4 mb-5">
-                    @if(empty($film_stock))
-                        <p>Pencarian Tidak Ditemukan!</p>
-                    @else
-                        
-                    
                     @foreach ($film_stock as $film_stock)
                         <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-center justify-content-center">
                             <div class="card position-relative movie-card" style="width: 16rem;">
-                            @if($film_stock->film_stock->tersedia == "Tersedia")
+                            @if($film_stock->tersedia == "Tersedia")
                             <div class="position-absolute top-0 end-0 bg-success p-1 pe-3 ps-3 mt-3 me-3 rounded" style="opacity: 0.8">
                             <p style="color:white; font-weight: 600">{{$film_stock->film_stock->tersedia}}</p>
                             </div>
@@ -49,7 +48,7 @@
                                 </div>
 
                             @endif
-                            <form action="{{url('/konfirmasi/'.$film_stock->film_stock->id_stock)}}" method="GET">
+                            <form action="{{url('/addcart')}}" method="GET">
                             <input type="hidden" name="id_stock[]" value="{{$film_stock->film_stock->id_stock}}" id="">
                                 <img style=""
                                     src="{{$film_stock->film_stock->poster}}"
@@ -66,7 +65,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <p style="margin:0;"><b>Rp.{{$film_stock->film_stock->harga}}</b> / week</p>
                                         @if($film_stock->film_stock->tersedia == "Tersedia")
-                                            <button type="submits"class="btn btn-primary">Sewa</button>                       
+                                        <button type="submits"class="btn btn-primary">Sewa</button>                                         
                                         @else
                                         <button type="submits"class="btn btn-dark" disabled>Sewa</button>
                                         @endif      
@@ -76,7 +75,6 @@
                             </div>
                         </div>
                     @endforeach
-                    @endif
                 </div>
                 {{-- <div>
                     {{$film_stock->links()}}
