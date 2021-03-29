@@ -61,23 +61,25 @@
       <div class="card mx-auto" style="max-width: 90%;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="poster.jpg" class="img-fluid" alt="">
+            <img src="{{$result->film_stock->poster}}" class="img-fluid" alt="gambar poster">
           </div>
-          <div class="col-md-8 d-flex align-items-center">
+          <div class="col-md-8 d-flex align-items-start">
             <div class="card-body">
               <div class="card-title d-flex justify-content-between align-items-center">
                   <div class="h-25 bg-success rounded p-1 me-3" style="opacity: 0.8">
-                      <p class="m-0" style="color:white; font-weight: 600;">Tersedia</p>
+                      <p class="m-0" style="color:white; font-weight: 600;">{{$result->film_stock->tersedia}}</p>
                       </div>
-                    <p class="m-0"><strong>The SpongeBob Movie: Sponge on the Run</strong></p>
+                    <p class="m-0" style="font-size: 24px"><strong>{{$result->film_stock->judul_s}}</strong></p>
               </div>
-              <p class="card-subtitle mb-2 text-muted">Rating</p>
+              <div style="height: 30px"></div>
+              {{-- <p class="card-subtitle mb-2 text-muted">Rating</p> --}}
               <div class="card-text mb-4 d-flex align-items-center justify-content-between">
               <div class="progress w-75">
                   <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               <p class="m-0">37/50 dsc</p>
               </div>
+              <div style="height: 30px"></div>
               <div class="card-text d-flex mb-4 align-items-center justify-content-between">
                 <p class="card-text m-0">Metode Pembayaran</p>
                 <select class="form-select w-50 border border-primary" style="color: blue" aria-label="Default select example">
@@ -91,7 +93,7 @@
                 <p class="card-text m-0">Lama Sewa?</p>
                 <div class="btn-group d-flex justify-content-between w-25">
                 <input class="btn btn-primary me-2 rounded" type="submit" value="-">
-                <input type="text" name="lama_pinjam" style="width: 20px" class="me-2">
+                <input type="text" name="lama_pinjam" style="width: 50px" class="me-2" value="1">
                 <input class="btn btn-primary rounded" type="submit" value="+">
               </div>
               </div>
@@ -101,7 +103,7 @@
     </div>
     <hr class="w-100 mx-auto">
     <div class="d-flex justify-content-between">
-        <a class="btn btn-outline-primary ms-5" href="#" role="button">Kembali</a>
+        <a class="btn btn-outline-primary ms-5" href="{{route('home')}}" role="button">Kembali</a>
         <a class="btn btn-primary me-5" href="#" role="button">Selanjutnya</a>
     </div>
   </div>

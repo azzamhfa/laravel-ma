@@ -13,6 +13,6 @@ class detailCon extends Controller
     public function getDetail($id)
     {
         $detailFilm = film::find($id);
-        return view('welcome', ['result' => $detailFilm] );
+        return view('konfirmasi_pembayaran', ['result' => $detailFilm] );
     }
 }

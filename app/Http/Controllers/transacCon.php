@@ -17,7 +17,6 @@ class transacCon extends Controller
         );
 
         $getId = transaksi::latest('id_transaksi','desc')->first();
-
         // echo($getId->id_transaksi);
 
         $id = $getId->id_transaksi;

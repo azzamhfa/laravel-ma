@@ -8,8 +8,33 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $film_stock = \App\Models\film_stock::all();
+        $film_stock = \App\Models\film::all();
         // dd($genre);
         return view('welcome',['film_stock' => $film_stock]);
+    }
+
+    public function search($input)
+    {
+        $searchP = explode(' ', $input);
+        $filmQuery = \App\Models\film::query();
+
+        foreach($searchP as $search)
+        {
+            $filmQuery->distinct('judul')->
+            join('genre_list','film.id_film','=','genre_list.id_film')->
+            join('genres','genre_list.id_genre','=','genres.id_genre')->
+            where(function($q) use ($search)
+            {
+                $q->where('judul', 'like', '%'.$search.'%')
+                ->orWhere('slogan', 'like', '%'.$search.'%')
+                ->orWhere('sutradara', 'like', '%'.$search.'%')
+                ->orWhere('genre', 'like', '%'.$search.'%');
+            }
+        );
+        }
+
+        $film_stock = $filmQuery->get();
+        // dd($film_stock);
+        return view('welcome', ['film_stock' => $film_stock]);
     }
 }
