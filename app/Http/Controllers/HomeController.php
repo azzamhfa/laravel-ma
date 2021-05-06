@@ -1,16 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        $film_stock = \App\Models\film::all();
+        $data = Http::get('https://film-service-ma.herokuapp.com/moviesDB')->json();
+        // return $data;
+        // $film_stock = \App\Models\film::all();
         // dd($genre);
-        return view('welcome',['film_stock' => $film_stock]);
+        return view('welcome', ["data" => $data]);
     }
 
     public function search($input)

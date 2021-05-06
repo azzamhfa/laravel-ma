@@ -31,41 +31,34 @@
         <div class="content">
             <div class="mx-auto py-5 d-flex align-items-center flex-column" style="width:85%;">
                 <div class="row gy-4 mb-5">
-                    @if(empty($film_stock))
+                    @if(empty($data))
                         <p>Pencarian Tidak Ditemukan!</p>
                     @else
                         
                     
-                    @foreach ($film_stock as $film_stock)
+                    @foreach ($data as $item)
                         <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-center justify-content-center">
                             <div class="card position-relative movie-card" style="width: 16rem;">
-                            @if($film_stock->film_stock->tersedia == "Tersedia")
+                            @if($item['tersedia'] == 1)
                             <div class="position-absolute top-0 end-0 bg-success p-1 pe-3 ps-3 mt-3 me-3 rounded" style="opacity: 0.8">
-                            <p style="color:white; font-weight: 600">{{$film_stock->film_stock->tersedia}}</p>
+                            <p style="color:white; font-weight: 600">Tersedia</p>
                             </div>
                             @else
                                 <div class="position-absolute top-0 end-0 bg-danger p-1 pe-3 ps-3 mt-3 me-3 rounded" style="opacity: 0.8">
-                                <p style="color:white; font-weight: 600">{{$film_stock->film_stock->tersedia}}</p>
+                                <p style="color:white; font-weight: 600">Tidak Tersedia</p>
                                 </div>
 
                             @endif
-                            <form action="{{url('/konfirmasi/'.$film_stock->film_stock->id_stock)}}" method="GET">
-                            <input type="hidden" name="id_stock[]" value="{{$film_stock->film_stock->id_stock}}" id="">
+                            <form action="{{url('/konfirmasi/'.$item['id_film'])}}" method="GET">
+                            <input type="hidden" name="id_stock[]" value="{{$item['id_film']}}" id="">
                                 <img style=""
-                                    src="{{$film_stock->film_stock->poster}}"
+                                    src="{{$item['poster']}}"
                                     class="card-img-top" alt="movie poster">
                                 <div class="card-body">
-                                    <p style="font-weight: bold;" class="mb-4">{{$film_stock->film_stock->judul_s}}</p>
-                                    {{-- <div class="row my-3 mx-0 h-100 justify-content-center align-items-center">
-                                        <div class="progress col-sm-6 p-0" style="height: 10px;">
-                                            <div class="progress-bar" role="progressbar" style="width: 75%"
-                                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <p class="col " style="font-size: .9rem;padding:0;text-align:end; display:inline-block;">37 / 50 disc</p>
-                                    </div> --}}
+                                    <p style="font-weight: bold;" class="mb-4">{{$item['judul']}}</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <p style="margin:0;"><b>Rp.{{$film_stock->film_stock->harga}}</b> / week</p>
-                                        @if($film_stock->film_stock->tersedia == "Tersedia")
+                                        <p style="margin:0;"><b>Rp.{{$item['harga']}}</b> / week</p>
+                                        @if($item['tersedia']==1)
                                             <button type="submits"class="btn btn-primary">Sewa</button>                       
                                         @else
                                         <button type="submits"class="btn btn-dark" disabled>Sewa</button>
